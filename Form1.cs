@@ -16,5 +16,49 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+        List<int> Set;
+        private void SetEnter_TextChanged(object sender, EventArgs e)
+        {
+            Set = new List<int>();
+            for (int i = 0; i < SetEnter.Text.Length; i++)
+            {
+
+            }
+            WideLabel.Text = "";
+            HeightLabel.Text = "";
+            FillLabel.Text = "";
+            string SetString = "";
+            foreach (var symbol in SetEnter.Text)
+            {
+             
+                if (Char.IsDigit(symbol))
+                {
+                    SetString += symbol;
+                }
+                else
+                {
+                    if (SetString != "")
+                    {
+                        Set.Add(int.Parse(SetString));
+                        SetString = "";
+                    }
+                }
+            }
+            if (SetString != "")
+            {
+                Set.Add(int.Parse(SetString));
+                SetString = "";
+            }
+            foreach (var element in Set)
+            {
+                WideLabel.Text += "  " + element.ToString();
+                HeightLabel.Text += "\n " + element.ToString();
+                foreach (var item in Set)
+                {
+                   FillLabel.Text += "  " + item.ToString();
+                }
+                FillLabel.Text += "\n " ;
+            }
+        }
     }
 }
