@@ -32,6 +32,8 @@
             this.WideLabel = new System.Windows.Forms.Label();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.FillLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SetEnter
@@ -47,7 +49,7 @@
             this.WideLabel.AutoSize = true;
             this.WideLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WideLabel.ForeColor = System.Drawing.Color.Blue;
-            this.WideLabel.Location = new System.Drawing.Point(65, 89);
+            this.WideLabel.Location = new System.Drawing.Point(25, 11);
             this.WideLabel.Name = "WideLabel";
             this.WideLabel.Size = new System.Drawing.Size(29, 13);
             this.WideLabel.TabIndex = 1;
@@ -58,7 +60,7 @@
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HeightLabel.ForeColor = System.Drawing.Color.Blue;
-            this.HeightLabel.Location = new System.Drawing.Point(46, 103);
+            this.HeightLabel.Location = new System.Drawing.Point(6, 25);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(13, 78);
             this.HeightLabel.TabIndex = 2;
@@ -67,23 +69,35 @@
             // FillLabel
             // 
             this.FillLabel.AutoSize = true;
-            this.FillLabel.Location = new System.Drawing.Point(65, 116);
+            this.FillLabel.Location = new System.Drawing.Point(25, 38);
             this.FillLabel.Name = "FillLabel";
             this.FillLabel.Size = new System.Drawing.Size(16, 13);
             this.FillLabel.TabIndex = 3;
             this.FillLabel.Text = "fill";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.WideLabel);
+            this.panel1.Controls.Add(this.FillLabel);
+            this.panel1.Controls.Add(this.HeightLabel);
+            this.panel1.Location = new System.Drawing.Point(36, 100);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(212, 217);
+            this.panel1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 405);
-            this.Controls.Add(this.FillLabel);
-            this.Controls.Add(this.HeightLabel);
-            this.Controls.Add(this.WideLabel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SetEnter);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Лабораторная работа № 1";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +109,7 @@
         private System.Windows.Forms.Label WideLabel;
         private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.Label FillLabel;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

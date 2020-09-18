@@ -53,9 +53,9 @@ namespace WindowsFormsApp1
             {
                 WideLabel.Text += "  " + element.ToString();
                 HeightLabel.Text += "\n " + element.ToString();
-                foreach (var item in Set)
+                foreach (var elementx2 in Set)
                 {
-                   FillLabel.Text += "  " + item.ToString();
+                   FillLabel.Text += "  " + elementx2.ToString();
                 }
                 FillLabel.Text += "\n " ;
             }
