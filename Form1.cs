@@ -19,9 +19,6 @@ namespace WindowsFormsApp1
         {
             Set = new List<int>();
 
-            WideLabel.Text = "";
-            HeightLabel.Text = "";
-            FillLabel.Text = "";
             string SetString = "";
             foreach (var symbol in SetEnter.Text)
             {
@@ -63,16 +60,7 @@ namespace WindowsFormsApp1
                 else
                     SetOutPut.Text += ", " + element.ToString();
             }
-            //foreach (var element in Set)
-            //{
-            //    WideLabel.Text += "  " + element.ToString();
-            //    HeightLabel.Text += "\n " + element.ToString();
-            //    foreach (var elementx2 in Set)
-            //    {
-            //       FillLabel.Text += "  " + elementx2.ToString();
-            //    }
-            //    FillLabel.Text += "\n " ;
-            //}
+            
         }
 
 
@@ -150,9 +138,7 @@ namespace WindowsFormsApp1
             Pairs = new List<Pairs>();
             int A = 0;
             int B;
-            WideLabel.Text = "";
-            HeightLabel.Text = "";
-            FillLabel.Text = "";
+           
             string SetString = "";
             bool isPairMade = false;
             foreach (var symbol in PairsSet.Text)
@@ -166,7 +152,7 @@ namespace WindowsFormsApp1
                 {
                     if (SetString != "")
                     {
-                        if ((Set!= null) &&Set.Contains(int.Parse(SetString)))
+                        if (Set!= null) 
                         {
                             if (isPairMade == false)
                             {
@@ -178,7 +164,7 @@ namespace WindowsFormsApp1
                             {
                                 isPairMade = false; 
                                 B = int.Parse(SetString);
-                                if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)))
+                                if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) &&((Set.Contains(A)&&(Set.Contains(B))) ))
                                 {
                                     Pairs.Add(new Pairs(A, B));
                                 }
@@ -188,6 +174,7 @@ namespace WindowsFormsApp1
 
 
                         }
+                     
                         SetString = "";
                     }
                 }
@@ -197,7 +184,7 @@ namespace WindowsFormsApp1
             {
                 isPairMade = false;
                 B = int.Parse(SetString);
-                if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)))
+                if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) && ((Set.Contains(A) && (Set.Contains(B)))))
                 {
                     Pairs.Add(new Pairs(A, B));
                 }
@@ -225,6 +212,46 @@ namespace WindowsFormsApp1
         private void PairsSet_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            //WideLabel.Text = "";
+            //HeightLabel.Text = "";
+            //FillLabel.Text = " ";
+            Matrix.Rows.Clear();
+            Matrix.Refresh();
+            Matrix.ColumnCount = Set.Count;
+            Matrix.RowCount = Set.Count;
+            if (Set != null && Pairs != null)
+            {
+
+
+
+                for (int i = 0; i < Set.Count; i++)
+                {
+                    Matrix.Columns[i].Width = 30;
+                    Matrix.Columns[i].HeaderText = Set[i].ToString();
+                    // Matrix.Rows[i].Width = 3;
+                    Matrix.Rows[i].HeaderCell.Value = Set[i].ToString();
+
+                    for (int j = 0; j < Set.Count; j++)
+                    {
+                        if (Classes.Pairs.Contains(Pairs, new Classes.Pairs(Set[i], Set[j])))
+                        {
+
+                            Matrix.Rows[j].Cells[i].Value = 1;
+                        }
+                        else
+                        {
+                            Matrix.Rows[j].Cells[i].Value = 0;
+                        }
+                    }
+                }
+
+
+            }
+         
         }
     }
 }

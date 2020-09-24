@@ -28,65 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.WideLabel = new MetroFramework.Controls.MetroLabel();
-            this.HeightLabel = new MetroFramework.Controls.MetroLabel();
-            this.FillLabel = new MetroFramework.Controls.MetroLabel();
-            this.panel1 = new MetroFramework.Controls.MetroPanel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PairsSet = new MetroFramework.Controls.MetroTextBox();
             this.SetOutPut = new MetroFramework.Controls.MetroLabel();
             this.SetEnter = new MetroFramework.Controls.MetroTextBox();
             this.PairsOutPut = new MetroFramework.Controls.MetroLabel();
-            this.panel1.SuspendLayout();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.Matrix = new MetroFramework.Controls.MetroGrid();
+            ((System.ComponentModel.ISupportInitialize)(this.Matrix)).BeginInit();
             this.SuspendLayout();
-            // 
-            // WideLabel
-            // 
-            this.WideLabel.AutoSize = true;
-            this.WideLabel.ForeColor = System.Drawing.Color.Blue;
-            this.WideLabel.Location = new System.Drawing.Point(25, 11);
-            this.WideLabel.Name = "WideLabel";
-            this.WideLabel.Size = new System.Drawing.Size(36, 19);
-            this.WideLabel.TabIndex = 1;
-            this.WideLabel.Text = "wide";
-            // 
-            // HeightLabel
-            // 
-            this.HeightLabel.AutoSize = true;
-            this.HeightLabel.ForeColor = System.Drawing.Color.Blue;
-            this.HeightLabel.Location = new System.Drawing.Point(6, 25);
-            this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(17, 133);
-            this.HeightLabel.TabIndex = 2;
-            this.HeightLabel.Text = "h\r\ne\r\ni\r\ng\r\nh\r\nt\r\n";
-            // 
-            // FillLabel
-            // 
-            this.FillLabel.AutoSize = true;
-            this.FillLabel.Location = new System.Drawing.Point(25, 38);
-            this.FillLabel.Name = "FillLabel";
-            this.FillLabel.Size = new System.Drawing.Size(22, 19);
-            this.FillLabel.TabIndex = 3;
-            this.FillLabel.Text = "fill";
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Controls.Add(this.WideLabel);
-            this.panel1.Controls.Add(this.FillLabel);
-            this.panel1.Controls.Add(this.HeightLabel);
-            this.panel1.HorizontalScrollbar = true;
-            this.panel1.HorizontalScrollbarBarColor = true;
-            this.panel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.panel1.HorizontalScrollbarSize = 10;
-            this.panel1.Location = new System.Drawing.Point(25, 149);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(217, 217);
-            this.panel1.TabIndex = 4;
-            this.panel1.VerticalScrollbar = true;
-            this.panel1.VerticalScrollbarBarColor = true;
-            this.panel1.VerticalScrollbarHighlightOnWheel = false;
-            this.panel1.VerticalScrollbarSize = 10;
             // 
             // PairsSet
             // 
@@ -173,34 +125,85 @@
             this.PairsOutPut.TabIndex = 10;
             this.PairsOutPut.Text = "Пары вида (a,b):";
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(23, 160);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(146, 23);
+            this.metroButton1.TabIndex = 11;
+            this.metroButton1.Text = "Матрица";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // Matrix
+            // 
+            this.Matrix.AllowUserToResizeRows = false;
+            this.Matrix.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Matrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Matrix.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.Matrix.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Matrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Matrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Matrix.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Matrix.EnableHeadersVisualStyles = false;
+            this.Matrix.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Matrix.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Matrix.Location = new System.Drawing.Point(23, 189);
+            this.Matrix.Name = "Matrix";
+            this.Matrix.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Matrix.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.Matrix.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.Matrix.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Matrix.Size = new System.Drawing.Size(240, 150);
+            this.Matrix.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 452);
+            this.Controls.Add(this.Matrix);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.PairsOutPut);
             this.Controls.Add(this.SetEnter);
             this.Controls.Add(this.SetOutPut);
             this.Controls.Add(this.PairsSet);
-            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Лабораторная работа № 1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Matrix)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroLabel HeightLabel;
-        private MetroFramework.Controls.MetroLabel FillLabel;
-        private MetroFramework.Controls.MetroPanel panel1;
         private MetroFramework.Controls.MetroLabel SetOutPut;
         private MetroFramework.Controls.MetroTextBox SetEnter;
         private MetroFramework.Controls.MetroTextBox PairsSet;
-        private MetroFramework.Controls.MetroLabel WideLabel;
         private MetroFramework.Controls.MetroLabel PairsOutPut;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroGrid Matrix;
     }
 }
 
