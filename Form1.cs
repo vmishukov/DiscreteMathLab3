@@ -94,10 +94,10 @@ namespace WindowsFormsApp1
             }
 
         }
-        int NumberCount = 0;
+    
         private void PairsSet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            NumberCount = 0;
+           
             if ((!char.Equals(',', e.KeyChar)) && ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar))) && (!char.Equals('(', e.KeyChar)) && (!char.Equals(')', e.KeyChar)))
             {
 
@@ -216,23 +216,25 @@ namespace WindowsFormsApp1
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            //WideLabel.Text = "";
-            //HeightLabel.Text = "";
-            //FillLabel.Text = " ";
+            ReflexiveLabel.Text = "Рефлексивное";
+            AntiReflexiveLabel.Text = "Антирефлексивное";
+            Symmetric.Text = "Симметричное";
+            AntiSymmetric.Text = "Антисимметричное";
+            TransitiveLabel.Text = "Транзитивное";
+            Matrix.Columns.Clear();
             Matrix.Rows.Clear();
             Matrix.Refresh();
-            Matrix.ColumnCount = Set.Count;
-            Matrix.RowCount = Set.Count;
-            if (Set != null && Pairs != null)
+            if (Pairs != null && Set !=null && Set.Any() && Pairs.Any())
             {
 
+                Matrix.ColumnCount = Set.Count;
+                Matrix.RowCount = Set.Count;
 
 
                 for (int i = 0; i < Set.Count; i++)
                 {
                     Matrix.Columns[i].Width = 30;
-                    Matrix.Columns[i].HeaderText = Set[i].ToString();
-                    // Matrix.Rows[i].Width = 3;
+                    Matrix.Columns[i].HeaderText = Set[i].ToString();             
                     Matrix.Rows[i].HeaderCell.Value = Set[i].ToString();
 
                     for (int j = 0; j < Set.Count; j++)
@@ -249,9 +251,50 @@ namespace WindowsFormsApp1
                     }
                 }
 
-
+                if (Classes.Pairs.ReflexiveCheck(Set,Pairs))
+                {
+                    ReflexiveLabel.Text += " ✔";
+                }
+                else
+                {
+                    ReflexiveLabel.Text += " ✘";
+                }
+                if (Classes.Pairs.AntiReflexiveCheck(Set, Pairs))
+                {
+                    AntiReflexiveLabel.Text += " ✔";
+                }
+                else
+                {
+                    AntiReflexiveLabel.Text += " ✘";
+                }
+                if (Classes.Pairs.SymmetricCheck(Pairs))
+                {
+                    Symmetric.Text += " ✔";
+                }
+                else
+                {
+                    Symmetric.Text += " ✘";
+                }
+                if (Classes.Pairs.AntiSymmetricCheck(Pairs))
+                {
+                    AntiSymmetric.Text += " ✔";
+                }
+                else
+                {
+                    AntiSymmetric.Text += " ✘";
+                }
+                if (Classes.Pairs.TransitiveCheck(Pairs))
+                {
+                    TransitiveLabel.Text += " ✔";
+                }
+                else
+                {
+                    TransitiveLabel.Text += " ✘";
+                }
             }
-         
+     
         }
+
+  
     }
 }
