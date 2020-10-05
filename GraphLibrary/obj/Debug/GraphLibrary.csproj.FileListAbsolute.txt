@@ -1,0 +1,6 @@
+C:\Users\vladg\Desktop\SimpleGraphLibrary-master\GraphLibrary\GraphLibrary\bin\Debug\GraphLibrary.dll
+C:\Users\vladg\Desktop\SimpleGraphLibrary-master\GraphLibrary\GraphLibrary\bin\Debug\GraphLibrary.pdb
+C:\Users\vladg\Desktop\SimpleGraphLibrary-master\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.csprojAssemblyReference.cache
+C:\Users\vladg\Desktop\SimpleGraphLibrary-master\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.csproj.CoreCompileInputs.cache
+C:\Users\vladg\Desktop\SimpleGraphLibrary-master\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.dll
+C:\Users\vladg\Desktop\SimpleGraphLibrary-master\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.pdb
