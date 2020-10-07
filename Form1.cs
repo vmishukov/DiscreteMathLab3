@@ -14,17 +14,19 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-        List<int> Set;
         List<Pairs> Pairs;
+        List<string> Set;
+        SimpleDirectedGraph<string, string> _graph = new SimpleDirectedGraph<string, string>();
         private void SetEnter_TextChanged(object sender, EventArgs e)
         {
-            Set = new List<int>();
-
+            _graph = new SimpleDirectedGraph<string, string>();
+            Set = new List<string>();
+        
             string SetString = "";
             foreach (var symbol in SetEnter.Text)
             {
 
-                if (Char.IsDigit(symbol))
+                if (symbol!=',')
                 {
                     SetString += symbol;
                 }
@@ -32,9 +34,10 @@ namespace WindowsFormsApp1
                 {
                     if (SetString != "")
                     {
-                        if (!Set.Contains(int.Parse(SetString)))
+                        if (!Set.Contains(SetString))
                         {
-                            Set.Add(int.Parse(SetString));
+                            Set.Add(SetString);
+                           
                         }
                         SetString = "";
                     }
@@ -42,33 +45,31 @@ namespace WindowsFormsApp1
             }
             if (SetString != "")
             {
-                if (!Set.Contains(int.Parse(SetString)))
+                if (!Set.Contains(SetString))
                 {
-                    Set.Add(int.Parse(SetString));
+                    Set.Add(SetString);
                 }
 
                 SetString = "";
             }
-
-            Set.Sort();
-            SetOutPut.Text = "Множество А:";
+            SetOutPut.Text = "Вершины графа:";
             foreach (var element in Set)
             {
                 if (Set.IndexOf(element) == 0)
                 {
-                    SetOutPut.Text += element.ToString();
+                    SetOutPut.Text += element;
                 }
                 else
-                    SetOutPut.Text += ", " + element.ToString();
+                    SetOutPut.Text += ", " + element;
+                _graph.AddVertex(element);
             }
-            
-        }
 
+        }
 
 
         private void SetEnter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((!char.Equals(',', e.KeyChar)) && ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar))))
+            if ((!char.Equals(',', e.KeyChar)) && ((!char.IsLetter(e.KeyChar) && !char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar))))
             {
 
                 e.Handled = true;
@@ -99,7 +100,7 @@ namespace WindowsFormsApp1
         private void PairsSet_KeyPress(object sender, KeyPressEventArgs e)
         {
            
-            if ((!char.Equals(',', e.KeyChar)) && ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar))) && (!char.Equals('(', e.KeyChar)) && (!char.Equals(')', e.KeyChar)))
+            if ((!char.Equals(',', e.KeyChar)) && ((!char.IsLetter(e.KeyChar) && !char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar))) && (!char.Equals('(', e.KeyChar)) && (!char.Equals(')', e.KeyChar)))
             {
 
                 e.Handled = true;
@@ -113,13 +114,6 @@ namespace WindowsFormsApp1
                     if ((!char.IsNumber(e.KeyChar)) && (char.Equals(e.KeyChar, PairsSet.Text.Last())))
                     {
                         e.Handled = true;
-                    }
-                    else
-                    {
-                        //if (!char.IsNumber(e.KeyChar) && !(char.Equals('(', PairsSet.Text.Last()-1)))
-                        //{
-                        //   e.Handled = true;
-                        //}
                     }
                 }
                 else
@@ -137,15 +131,15 @@ namespace WindowsFormsApp1
         private void PairsSet_TextChanged(object sender, EventArgs e)
         {
             Pairs = new List<Pairs>();
-            int A = 0;
-            int B;
-           
+            string A = "";
+            string B= "";
+
             string SetString = "";
             bool isPairMade = false;
             foreach (var symbol in PairsSet.Text)
             {
 
-                if (Char.IsDigit(symbol))
+                if (Char.IsDigit(symbol) || Char.IsLetter(symbol))
                 {
                     SetString += symbol;
                 }
@@ -153,21 +147,22 @@ namespace WindowsFormsApp1
                 {
                     if (SetString != "")
                     {
-                        if (Set!= null) 
+                        if (Set != null)
                         {
                             if (isPairMade == false)
                             {
                                 isPairMade = true;
-                                A = int.Parse(SetString);
+                                A = SetString;
                                 SetString = "";
                             }
                             else
                             {
-                                isPairMade = false; 
-                                B = int.Parse(SetString);
-                                if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) &&((Set.Contains(A)&&(Set.Contains(B))) ))
+                                isPairMade = false;
+                                B = SetString;
+                                if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) && ((Set.Contains(A) && (Set.Contains(B)))))
                                 {
                                     Pairs.Add(new Pairs(A, B));
+                              
                                 }
 
                                 SetString = "";
@@ -175,7 +170,7 @@ namespace WindowsFormsApp1
 
 
                         }
-                     
+
                         SetString = "";
                     }
                 }
@@ -184,7 +179,7 @@ namespace WindowsFormsApp1
             if ((SetString != "") && (isPairMade == true))
             {
                 isPairMade = false;
-                B = int.Parse(SetString);
+                B = SetString;
                 if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) && ((Set.Contains(A) && (Set.Contains(B)))))
                 {
                     Pairs.Add(new Pairs(A, B));
@@ -192,29 +187,21 @@ namespace WindowsFormsApp1
 
                 SetString = "";
             }
-
-            Classes.Pairs.Sort(Set,Pairs);
-            PairsOutPut.Text = "Пары вида (a,b):";
+            PairsOutPut.Text = "Ребра графа:";
             foreach (var element in Pairs)
-            {
-                //if (Pairs.IndexOf(element) == 0)
-                //{
-                //    PairsOutPut.Text += element.ToString();
-                //}
-                //else
-                    PairsOutPut.Text += "(" + element.a.ToString() + " , " + element.b.ToString() + ") " ;
-            
+            {     
+                PairsOutPut.Text += "(" + element.a + " , " + element.b + ") ";
 
+                _graph.AddEdge(element.a, element.b, "");
 
             }
-            
+
         }
 
         private void PairsSet_Click(object sender, EventArgs e)
         {
 
         }
-
         private void metroButton1_Click(object sender, EventArgs e)
         {
             ReflexiveLabel.Text = "Рефлексивное";
@@ -225,19 +212,18 @@ namespace WindowsFormsApp1
             Matrix.Columns.Clear();
             Matrix.Rows.Clear();
             Matrix.Refresh();
-            if (Pairs != null && Set !=null && Set.Any() && Pairs.Any())
+            if (_graph !=null )
             {
 
-                Matrix.ColumnCount = Set.Count;
-                Matrix.RowCount = Set.Count;
+                Matrix.ColumnCount = _graph.GetVertexSet().ToList().Count;
+                Matrix.RowCount = _graph.GetVertexSet().ToList().Count;
 
 
-                for (int i = 0; i < Set.Count; i++)
+                for (int i = 0; i < _graph.GetVertexSet().ToList().Count; i++)
                 {
                     Matrix.Columns[i].Width = 30;
-                    Matrix.Columns[i].HeaderText = Set[i].ToString();             
-                    Matrix.Rows[i].HeaderCell.Value = Set[i].ToString();
-
+                    Matrix.Columns[i].HeaderText = _graph.GetVertexSet().ToList()[i].ToString();
+                    Matrix.Rows[i].HeaderCell.Value = _graph.GetVertexSet().ToList()[i].ToString();
                     for (int j = 0; j < Set.Count; j++)
                     {
                         if (Classes.Pairs.Contains(Pairs, new Classes.Pairs(Set[i], Set[j])))
@@ -250,48 +236,10 @@ namespace WindowsFormsApp1
                             Matrix.Rows[j].Cells[i].Value = 0;
                         }
                     }
-                }
 
-                if (Classes.Pairs.ReflexiveCheck(Set,Pairs))
-                {
-                    ReflexiveLabel.Text += " ✔";
+
                 }
-                else
-                {
-                    ReflexiveLabel.Text += " ✘";
-                }
-                if (Classes.Pairs.AntiReflexiveCheck(Set, Pairs))
-                {
-                    AntiReflexiveLabel.Text += " ✔";
-                }
-                else
-                {
-                    AntiReflexiveLabel.Text += " ✘";
-                }
-                if (Classes.Pairs.SymmetricCheck(Pairs))
-                {
-                    Symmetric.Text += " ✔";
-                }
-                else
-                {
-                    Symmetric.Text += " ✘";
-                }
-                if (Classes.Pairs.AntiSymmetricCheck(Pairs))
-                {
-                    AntiSymmetric.Text += " ✔";
-                }
-                else
-                {
-                    AntiSymmetric.Text += " ✘";
-                }
-                if (Classes.Pairs.TransitiveCheck(Pairs))
-                {
-                    TransitiveLabel.Text += " ✔";
-                }
-                else
-                {
-                    TransitiveLabel.Text += " ✘";
-                }
+             
             }
      
         }

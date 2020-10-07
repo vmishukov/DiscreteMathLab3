@@ -55,7 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AbstractGraph.cs" />
+    <Compile Include="Classes\IGraph.cs" />
+    <Compile Include="Classes\IPairValue.cs" />
     <Compile Include="Classes\Pairs.cs" />
+    <Compile Include="Classes\PairValue.cs" />
+    <Compile Include="Classes\SimpleDirectedGraph.cs" />
+    <Compile Include="Classes\SimpleUndirectedGraph.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
