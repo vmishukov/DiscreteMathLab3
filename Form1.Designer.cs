@@ -37,17 +37,14 @@
             this.PairsOutPut = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.Matrix = new MetroFramework.Controls.MetroGrid();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.ReflexiveLabel = new MetroFramework.Controls.MetroLabel();
-            this.AntiReflexiveLabel = new MetroFramework.Controls.MetroLabel();
-            this.Symmetric = new MetroFramework.Controls.MetroLabel();
-            this.AntiSymmetric = new MetroFramework.Controls.MetroLabel();
-            this.TransitiveLabel = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.OutPutLabel = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.Matrix)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PairsSet
@@ -137,11 +134,11 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(23, 160);
+            this.metroButton1.Location = new System.Drawing.Point(23, 145);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(132, 23);
+            this.metroButton1.Size = new System.Drawing.Size(132, 38);
             this.metroButton1.TabIndex = 11;
-            this.metroButton1.Text = "Матрица смежности";
+            this.metroButton1.Text = "Матрица смежности и \r\nподмножества";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
@@ -188,60 +185,6 @@
             this.Matrix.Size = new System.Drawing.Size(240, 150);
             this.Matrix.TabIndex = 12;
             // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(269, 189);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(143, 19);
-            this.metroLabel1.TabIndex = 13;
-            this.metroLabel1.Text = "Свойства отношения:";
-            // 
-            // ReflexiveLabel
-            // 
-            this.ReflexiveLabel.AutoSize = true;
-            this.ReflexiveLabel.Location = new System.Drawing.Point(269, 208);
-            this.ReflexiveLabel.Name = "ReflexiveLabel";
-            this.ReflexiveLabel.Size = new System.Drawing.Size(97, 19);
-            this.ReflexiveLabel.TabIndex = 14;
-            this.ReflexiveLabel.Text = "Рефлексивное";
-            // 
-            // AntiReflexiveLabel
-            // 
-            this.AntiReflexiveLabel.AutoSize = true;
-            this.AntiReflexiveLabel.Location = new System.Drawing.Point(269, 227);
-            this.AntiReflexiveLabel.Name = "AntiReflexiveLabel";
-            this.AntiReflexiveLabel.Size = new System.Drawing.Size(127, 19);
-            this.AntiReflexiveLabel.TabIndex = 15;
-            this.AntiReflexiveLabel.Text = "Антирефлексивное";
-            // 
-            // Symmetric
-            // 
-            this.Symmetric.AutoSize = true;
-            this.Symmetric.Location = new System.Drawing.Point(269, 246);
-            this.Symmetric.Name = "Symmetric";
-            this.Symmetric.Size = new System.Drawing.Size(102, 19);
-            this.Symmetric.TabIndex = 16;
-            this.Symmetric.Text = "Симметричное";
-            // 
-            // AntiSymmetric
-            // 
-            this.AntiSymmetric.AutoSize = true;
-            this.AntiSymmetric.Location = new System.Drawing.Point(269, 265);
-            this.AntiSymmetric.Name = "AntiSymmetric";
-            this.AntiSymmetric.Size = new System.Drawing.Size(129, 19);
-            this.AntiSymmetric.TabIndex = 17;
-            this.AntiSymmetric.Text = "Антисимметричное";
-            // 
-            // TransitiveLabel
-            // 
-            this.TransitiveLabel.AutoSize = true;
-            this.TransitiveLabel.Location = new System.Drawing.Point(270, 284);
-            this.TransitiveLabel.Name = "TransitiveLabel";
-            this.TransitiveLabel.Size = new System.Drawing.Size(96, 19);
-            this.TransitiveLabel.TabIndex = 18;
-            this.TransitiveLabel.Text = "Транзитивное";
-            // 
             // metroPanel1
             // 
             this.metroPanel1.AutoScroll = true;
@@ -276,19 +219,40 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // metroPanel3
+            // 
+            this.metroPanel3.AutoScroll = true;
+            this.metroPanel3.Controls.Add(this.OutPutLabel);
+            this.metroPanel3.HorizontalScrollbar = true;
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(269, 175);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(166, 164);
+            this.metroPanel3.TabIndex = 21;
+            this.metroPanel3.VerticalScrollbar = true;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // OutPutLabel
+            // 
+            this.OutPutLabel.AutoSize = true;
+            this.OutPutLabel.Location = new System.Drawing.Point(4, 4);
+            this.OutPutLabel.Name = "OutPutLabel";
+            this.OutPutLabel.Size = new System.Drawing.Size(102, 19);
+            this.OutPutLabel.TabIndex = 2;
+            this.OutPutLabel.Text = "Подмножества:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 358);
+            this.ClientSize = new System.Drawing.Size(441, 358);
+            this.Controls.Add(this.metroPanel3);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.TransitiveLabel);
-            this.Controls.Add(this.AntiSymmetric);
-            this.Controls.Add(this.Symmetric);
-            this.Controls.Add(this.AntiReflexiveLabel);
-            this.Controls.Add(this.ReflexiveLabel);
-            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.Matrix);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.SetEnter);
@@ -302,8 +266,9 @@
             this.metroPanel1.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
+            this.metroPanel3.ResumeLayout(false);
+            this.metroPanel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -314,14 +279,10 @@
         private MetroFramework.Controls.MetroLabel PairsOutPut;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroGrid Matrix;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel ReflexiveLabel;
-        private MetroFramework.Controls.MetroLabel AntiReflexiveLabel;
-        private MetroFramework.Controls.MetroLabel Symmetric;
-        private MetroFramework.Controls.MetroLabel AntiSymmetric;
-        private MetroFramework.Controls.MetroLabel TransitiveLabel;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
+        private MetroFramework.Controls.MetroLabel OutPutLabel;
     }
 }
 
