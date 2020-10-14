@@ -1,0 +1,14 @@
+D:\projectts\laba3\bin\Release\WindowsFormsApp1.exe.config
+D:\projectts\laba3\bin\Release\WindowsFormsApp1.exe
+D:\projectts\laba3\bin\Release\WindowsFormsApp1.pdb
+D:\projectts\laba3\bin\Release\MetroFramework.Design.dll
+D:\projectts\laba3\bin\Release\MetroFramework.dll
+D:\projectts\laba3\bin\Release\MetroFramework.Fonts.dll
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.Form1.resources
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.Properties.Resources.resources
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.csproj.CopyComplete
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.exe
+D:\projectts\laba3\obj\Release\WindowsFormsApp1.pdb

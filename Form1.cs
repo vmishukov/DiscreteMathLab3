@@ -179,7 +179,7 @@ namespace WindowsFormsApp1
             Matrix.Rows.Clear();
             Matrix.Refresh();
             OutPutLabel.Text = "Подмножества:";
-            if (_graph !=null )
+            if (_graph !=null && _graph.GetVertexSet().ToList().Count >0)
             {            
                 Matrix.ColumnCount = _graph.GetVertexSet().ToList().Count;
                 Matrix.RowCount = _graph.GetVertexSet().ToList().Count;
@@ -190,14 +190,22 @@ namespace WindowsFormsApp1
                     Matrix.Rows[i].HeaderCell.Value = _graph.GetVertexSet().ToList()[i].ToString();
                     for (int j = 0; j < Set.Count; j++)
                     {
-                        if (Classes.Pairs.Contains(Pairs, new Classes.Pairs(Set.Keys.ToList()[i], Set.Keys.ToList()[j])))
+                        if (Pairs != null && Pairs.Any())
                         {
-                            Matrix.Rows[j].Cells[i].Value = 1;
+                            if (Classes.Pairs.Contains(Pairs, new Classes.Pairs(Set.Keys.ToList()[i], Set.Keys.ToList()[j])))
+                            {
+                                Matrix.Rows[j].Cells[i].Value = 1;
+                            }
+                            else
+                            {
+                                Matrix.Rows[j].Cells[i].Value = 0;
+                            }
                         }
                         else
                         {
                             Matrix.Rows[j].Cells[i].Value = 0;
                         }
+
                     }
                 }
                 int k = 1;
