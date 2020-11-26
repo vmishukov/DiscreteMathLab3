@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GraphLibrary
 {
@@ -88,7 +89,45 @@ namespace GraphLibrary
                 throw new ArgumentException();
             return Degree(vertex);
         }
+        public List<string> BFS(int s)
+        {
 
+            // Mark all the vertices as not 
+            // visited(By default set as false)  
+            bool[] visited = new bool[VertexSet.Count()];
+            for (int i = 0; i < VertexSet.Count() - 1; i++)
+                visited[i] = false;
+
+            // Create a queue for BFS  
+            List<int> queue = new List<int>();
+            List<string> rofl = new List<string>();
+            // Mark the current node as  
+            // visited and enqueue it  
+            visited[s] = true;
+            queue.Add(s);
+
+            while (queue.Any())
+            {
+                s = queue.First();
+                rofl.Add(VertexSet[s].ToString());
+                queue.RemoveAt(queue.IndexOf(queue.First()));
+                List<T> list = AdjacentVertex(VertexSet[s]).ToList();
+                foreach (var val in list)
+                {
+                    if (!visited[VertexSet.IndexOf(val)])
+                    {
+                        visited[VertexSet.IndexOf(val)] = true;
+                        queue.Add(VertexSet.IndexOf(val));
+                    }
+                }
+            }
+            return rofl;
+        }
+        public void DeleteEdges()
+        {
+            EdgeSet.Clear();
+            Weigths.Clear();
+        }
         public override IEnumerable<T> AdjacentVertex(T vertex)
         {
             if (vertex == null)

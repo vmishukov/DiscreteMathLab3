@@ -17,10 +17,10 @@ namespace WindowsFormsApp1
         List<Pairs> Pairs;
         //List<string> Set;
         Dictionary<string,int> Set;
-        SimpleDirectedGraph<string, string> _graph = new SimpleDirectedGraph<string, string>();
+        SimpleUndirectedGraph<string, string> _graph = new SimpleUndirectedGraph<string, string>();
         private void SetEnter_TextChanged(object sender, EventArgs e)
         {
-            _graph = new SimpleDirectedGraph<string, string>();
+            _graph = new SimpleUndirectedGraph<string, string>();
             Set = new Dictionary<string, int>();       
             string SetString = "";
             foreach (var symbol in SetEnter.Text)
@@ -118,7 +118,6 @@ namespace WindowsFormsApp1
             string B= "";
             string SetString = "";
             bool isPairMade = false;
-
             foreach (var symbol in PairsSet.Text)
             {
                 if (Char.IsDigit(symbol) || Char.IsLetter(symbol))
@@ -143,7 +142,11 @@ namespace WindowsFormsApp1
                                 B = SetString;
                                 if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) && ((Set.Keys.Contains(A) && (Set.Keys.Contains(B)))))
                                 {
-                                    Pairs.Add(new Pairs(A, B));                           
+                                    Pairs.Add(new Pairs(A, B));
+                                    if (!Classes.Pairs.Contains(Pairs, new Pairs(B, A)) && ((Set.Keys.Contains(B) && (Set.Keys.Contains(A)))))
+                                    {
+                                        Pairs.Add(new Pairs(B, A));
+                                    }
                                 }
                                 SetString = "";
                             }
@@ -159,6 +162,10 @@ namespace WindowsFormsApp1
                 if (!Classes.Pairs.Contains(Pairs, new Pairs(A, B)) && ((Set.Keys.Contains(A) && (Set.Keys.Contains(B)))))
                 {
                     Pairs.Add(new Pairs(A, B));
+                    if (!Classes.Pairs.Contains(Pairs, new Pairs(B, A)) && ((Set.Keys.Contains(B) && (Set.Keys.Contains(A)))))
+                    {
+                        Pairs.Add(new Pairs(B, A));
+                    }
                 }
                 SetString = "";
             }
@@ -194,7 +201,7 @@ namespace WindowsFormsApp1
                         {
                             if (Classes.Pairs.Contains(Pairs, new Classes.Pairs(Set.Keys.ToList()[i], Set.Keys.ToList()[j])))
                             {
-                                Matrix.Rows[j].Cells[i].Value = 1;
+                                Matrix.Rows[j].Cells[i].Value = 1;                             
                             }
                             else
                             {
@@ -205,7 +212,6 @@ namespace WindowsFormsApp1
                         {
                             Matrix.Rows[j].Cells[i].Value = 0;
                         }
-
                     }
                 }
                 int k = 1;
@@ -222,19 +228,22 @@ namespace WindowsFormsApp1
                 {
                     if (Set[key] ==0)
                     {
+                        bool kek = false;
                         foreach (var item in _graph.BFS(_graph.GetVertexSet().ToList().IndexOf(key)))
                         {
-                            if (Set[item] == 0)
+                            if (Set[item] == 0 )
                             {
                                 Set[item] = k;
+                                kek = true;
                             }
-                        }                    
+                        }      
+                 
                             k++;                       
                     }                  
-                }
-                
+                }           
                 for (int i = 1; i < k; i++)
                 {
+
                     bool newline = true;
                     OutPutLabel.Text += "\n" +i.ToString()+ ") ";
                     foreach (var item in Set)
